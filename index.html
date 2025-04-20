@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worth the Sub? | Subscription Value Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1><i class="fas fa-tags"></i> Worth the Sub?</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#alternatives">Alternatives</a></li>
+                <li><a href="#community">Community Ratings</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Stop Wasting Money on Unused Subscriptions</h1>
+            <p>Find out if your subscriptions are actually worth the cost with our easy-to-use tools.</p>
+            <a href="#calculator" class="btn primary-btn">Check Your Value</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>How We Help You Save</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Cost vs. Usage Calculator</h3>
+                <p>Calculate if you're getting your money's worth based on how often you actually use each service.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-exchange-alt"></i>
+                <h3>Find Alternatives & Bundles</h3>
+                <p>Discover cheaper alternatives or bundle options to maximize your entertainment dollars.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-star"></i>
+                <h3>Community Ratings</h3>
+                <p>See what others think about subscriptions in 2025 before you commit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="calculator">
+        <h2>Subscription Value Calculator</h2>
+        <div class="calculator-container">
+            <div class="subscription-form">
+                <h3>Your Subscription Details</h3>
+                <form id="subscription-calculator">
+                    <div class="form-group">
+                        <label for="service-name">Service Name:</label>
+                        <input type="text" id="service-name" placeholder="Netflix, Spotify, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthly-cost">Monthly Cost ($):</label>
+                        <input type="number" id="monthly-cost" min="0" step="0.01" placeholder="9.99">
+                    </div>
+                    <div class="form-group">
+                        <label for="usage-hours">Hours Used Per Month:</label>
+                        <input type="number" id="usage-hours" min="0" step="0.5" placeholder="20">
+                    </div>
+                    <button type="submit" class="btn primary-btn">Calculate Value</button>
+                </form>
+            </div>
+            <div class="results" id="calculation-results">
+                <h3>Your Results</h3>
+                <div class="results-placeholder">
+                    <p>Enter your subscription details to see if it's worth the cost.</p>
+                </div>
+                <div class="results-content hidden">
+                    <div class="value-metric">
+                        <h4>Cost Per Hour:</h4>
+                        <span id="cost-per-hour">$0.00</span>
+                    </div>
+                    <div class="value-indicator">
+                        <h4>Value Rating:</h4>
+                        <div class="rating-meter">
+                            <div id="value-bar"></div>
+                        </div>
+                        <span id="value-verdict">Good Value</span>
+                    </div>
+                    <div class="recommendation">
+                        <h4>Recommendation:</h4>
+                        <p id="recommendation-text">Based on your usage, this subscription appears to be worth keeping.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="alternatives" class="alternatives">
+        <h2>Find Better Alternatives</h2>
+        <div class="alternatives-finder">
+            <div class="search-container">
+                <input type="text" id="service-search" placeholder="Search for a service...">
+                <button class="btn" id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="streaming">Streaming</button>
+                <button class="category-btn" data-category="music">Music</button>
+                <button class="category-btn" data-category="productivity">Productivity</button>
+                <button class="category-btn" data-category="gaming">Gaming</button>
+            </div>
+            <div class="alternatives-list" id="alternatives-container">
+                <!-- Services will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <section id="community" class="community">
+        <h2>Community Ratings</h2>
+        <div class="community-container">
+            <div class="trending-services">
+                <h3>Trending Services in 2025</h3>
+                <div class="service-ratings" id="trending-services">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="add-rating">
+                <h3>Add Your Rating</h3>
+                <form id="rating-form">
+                    <div class="form-group">
+                        <label for="rating-service">Service:</label>
+                        <input type="text" id="rating-service" placeholder="Service name">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating-score">Your Rating:</label>
+                        <div class="star-rating">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="rating-score" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating-comment">Comments:</label>
+                        <textarea id="rating-comment" placeholder="Share your thoughts..."></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Submit Rating</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Worth the Sub?</h3>
+                <p>Helping you make smarter subscription decisions since 2025.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#alternatives">Alternatives</a></li>
+                    <li><a href="#community">Community Ratings</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Have questions or suggestions?</p>
+                <a href="mailto:contact@worththesub.com" class="contact-link">contact@worththesub.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Worth the Sub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
